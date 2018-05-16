@@ -69,6 +69,10 @@ colorscheme solarized
 "====== COPY PASTE =====
 set clipboard=unnamed
 
+"====== MAXIMUM COLUMN NUMBER ========
+set colorcolumn=100
+set textwidth=100
+
 " ===== FILE BROWSING =====
 Plugin 'scrooloose/nerdtree'
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
