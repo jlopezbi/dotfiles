@@ -14,6 +14,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'henrik/vim-qargs'
+Plugin 'aquach/vim-http-client'
 
 " JULIA
 Plugin 'JuliaEditorSupport/julia-vim'
@@ -38,9 +39,11 @@ set incsearch       "Incremental search
 Plugin 'w0rp/ale'
 " Ale linter settings
 let g:ale_linters = {'javascript': ['eslint'], 'python': ['pylint']}
-let g:ale_fixers = {'javascript': ['eslint', 'prettier'], 'python': ['yapf', 'trim_whitespace', 'remove_trailing_lines', 'isort']}
+let g:ale_fixers = {'javascript': ['eslint', 'prettier'], 'python': ['black', 'trim_whitespace', 'remove_trailing_lines', 'isort']}
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_python_yapf_use_global = 1
+let g:ale_fix_on_save = 1
+let g:ale_python_black_options = '-l 100'
+let g:ale_python_pylint_change_directory = 0
 map <F1> :ALEFix<CR>
 
 " ===== INDENTATION =====
@@ -83,3 +86,6 @@ let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+
+" Fuzzy Find (fzf) 
+set rtp+=/usr/local/opt/fzf
