@@ -20,6 +20,7 @@ Plugin 'aquach/vim-http-client'
 Plugin 'JuliaEditorSupport/julia-vim'
 runtime macros/matchit.vim
 
+
 "split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -38,8 +39,8 @@ set incsearch       "Incremental search
 " ===== LINTING =====
 Plugin 'w0rp/ale'
 " Ale linter settings
-let g:ale_linters = {'javascript': ['eslint'], 'python': ['pylint']}
-let g:ale_fixers = {'javascript': ['eslint', 'prettier'], 'python': ['black', 'trim_whitespace', 'remove_trailing_lines', 'isort']}
+let g:ale_linters = {'javascript': ['eslint'], 'python': ['pylint'], 'json': ['jsonlint']}
+let g:ale_fixers = {'json': ['fixjson'], 'javascript': ['eslint', 'prettier'], 'python': ['black', 'trim_whitespace', 'remove_trailing_lines', 'isort']}
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_fix_on_save = 1
 let g:ale_python_black_options = '-l 100'
@@ -66,8 +67,10 @@ Plugin 'tmhedberg/SimpylFold'
 " ====== COLOR SCHEME =====
 syntax enable
 set background=light
-colorscheme solarized
-"call togglebg#map("<F5>")
+" for neovim:
+colorscheme NeoSolarized
+" for vim:
+"colorscheme solarized
 
 "====== COPY PASTE =====
 set clipboard=unnamed
@@ -80,7 +83,14 @@ set textwidth=100
 Plugin 'scrooloose/nerdtree'
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
+" FUZZY FIND
+Plugin 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_working_path_mode = 'r' " Use nearest .git directory as cwd
+set wildignore+=.git,*/node_modules/*,*/deps/build/*,*/stack/*,*/deps/go/*,*/deps/node/*,*/_site/*,*/__pycache__/*
 
+
+" ====== NVIM =========
+tnoremap <Esc> <C-\><C-n>
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
