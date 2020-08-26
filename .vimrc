@@ -16,6 +16,11 @@ Plugin 'VundleVim/Vundle.vim'
 "Plugin 'henrik/vim-qargs'
 Plugin 'aquach/vim-http-client'
 
+"NVIM PYTHON SUPPORT
+"NOTE: this is only for the 'fit' virutalenv.
+" see https://github.com/deoplete-plugins/deoplete-jedi/wiki/Setting-up-Python-for-Neovim for ref.
+let g:python3_host_prog = '/Users/josh/.virtualenvs/fit/bin/python3'
+
 " JULIA
 Plugin 'JuliaEditorSupport/julia-vim'
 runtime macros/matchit.vim
@@ -78,6 +83,10 @@ set clipboard=unnamed
 "====== MAXIMUM COLUMN NUMBER ========
 set colorcolumn=100
 set textwidth=100
+
+"======== CENTER TEXT ============
+Plugin 'junegunn/goyo.vim'
+let g:goyo_width=100
 
 " ===== FILE BROWSING =====
 Plugin 'scrooloose/nerdtree'
